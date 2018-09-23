@@ -2,19 +2,33 @@
 
 import { Injectable } from "@angular/core";
 import { Headers, Http, Response } from "@angular/http";
+
 import { errorHandler } from "../../../shared/error-handler/error-handler";
 import { CONSTANTS } from "../../../shared/CONSTANTS";
 import { SessionInfoService } from "../../../shared/session-info/session-info.service";
+import { UserModel } from "./user.model";
 
+/**
+ * User api service
+ */
 @Injectable()
-export class UserService {
+export class UserApiService {
 
+    /**
+     * Create user api service
+     * @param {Http} _http Http service
+     * @param {SessionInfoService} _sessionInfo Service to work with ionic storage
+     */
     public constructor(
         private _http: Http,
         private _sessionInfo: SessionInfoService
     ){}
 
-    public getUser() {
+    /**
+     * Get user value
+     * @returns {Promise<UserModel>} Uer data
+     */
+    public getUser(): Promise<UserModel> {
         let headers: Headers = new Headers();
         return this._sessionInfo.getToken()
             .then((token: string) => headers.append('auth-token', token))
@@ -25,7 +39,6 @@ export class UserService {
                     .toPromise())
             .then((res: Response) => res.json())
             .catch((errorResponse: Response) => {
-                console.log(errorResponse);
                 throw errorHandler(errorResponse);
             })
     }

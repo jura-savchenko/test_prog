@@ -1,7 +1,6 @@
 <?php
 
 include_once '../tools/api-response.php';
-
 /**
  * Class Database
  */
@@ -11,22 +10,22 @@ class Database
     /**
      * @var string Host
      */
-    private $host = "localhost";
+    private $host = "mysql.zzz.com.ua";
 
     /**
      * @var string Database name
      */
-    private $db_name = "testBd";
+    private $db_name = "jura_aka_gosha";
 
     /**
      * @var string Username
      */
-    private $username = "user";
+    private $username = "testprojdb";
 
     /**
      * @var string Password
      */
-    private $password = "password";
+    private $password = "Password1";
 
     /**
      * @var mysqli Database connection

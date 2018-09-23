@@ -17,6 +17,9 @@ export interface SignInModel {
 
 }
 
+/**
+ * Sign up model
+ */
 export interface SignUpModel extends SignInModel {
 
     /**

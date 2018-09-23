@@ -5,7 +5,7 @@ import { NavController } from "ionic-angular";
 import { NGXLogger } from "ngx-logger";
 
 import { SignInComponent } from "../auth/sign-in/sign-in.component";
-import { UserService } from "./user.service";
+import { UserApiService } from "./user-api.service";
 import { SessionInfoService } from "../../../shared/session-info/session-info.service";
 import { UserModel } from "./user.model";
 import { ApiError } from "../../../shared/error-handler/error-handler";
@@ -27,12 +27,12 @@ export class MainComponent implements OnInit {
     /**
      * Create MainComponent with inject services
      * @param {NavController} _navCtrl Service to work with control
-     * @param {UserService} _userService Service to work with user api
+     * @param {UserApiService} _userService Service to work with user api
      * @param {SessionInfoService} _sessionInfo Service to work with ionic storage
      * @param {NGXLogger} _logger Service to work with logger
      */
     public constructor(
-        private _userService: UserService,
+        private _userService: UserApiService,
         private _sessionInfo: SessionInfoService,
         private _navCtrl: NavController,
         private _logger: NGXLogger

@@ -3,6 +3,7 @@
 
 # Webstorm/Vscode/Sublime
 .idea/
+api/.idea
 *.sublime-project
 *.sublime-workspace
 .vscode/

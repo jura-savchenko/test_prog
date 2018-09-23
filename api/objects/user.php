@@ -6,6 +6,9 @@ include_once '../tools/headers.php';
 include_once '../tools/api-response.php';
 include_once '../tools/createToken.php';
 
+/**
+ * Class User
+ */
 class User
 {
     /**

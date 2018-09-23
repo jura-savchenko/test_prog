@@ -4,7 +4,7 @@ import { AlertController, IonicModule, LoadingController } from "ionic-angular";
 import { NgModule } from "@angular/core";
 
 import { MainComponent } from "./main.component";
-import { UserService } from "./user.service";
+import { UserApiService } from "./user-api.service";
 
 /**
  * Main module
@@ -22,7 +22,7 @@ import { UserService } from "./user.service";
     providers: [
         LoadingController,
         AlertController,
-        UserService
+        UserApiService
     ]
 })
 export class MainModule {

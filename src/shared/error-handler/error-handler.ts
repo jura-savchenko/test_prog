@@ -8,11 +8,19 @@ import { Response } from '@angular/http';
  * @returns {ApiError} return api error with message and status code
  */
 export function errorHandler(response: Response): ApiError {
-    let body: any = response.json(),
-        message: string;
-        const id: string = body.id || '';
+    let body: any = null, // tslint:disable-line:no-any
+        message: string = null,
+        isJSON: boolean = response.headers && response.headers.get('Content-Type') &&
+            !!response.headers.get('Content-Type').match(/application\/json/);
+
+    if (isJSON) {
+        body = response.json();
+        let id: string = (body.id) ? `[${body.id}] ` : '';
         message = body.message || body.error || body.body || JSON.stringify(body);
         message = id + message;
+    } else {
+        message = response.text();
+    }
 
     return new ApiError(message, response.status);
 }

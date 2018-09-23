@@ -1,19 +1,32 @@
-'use strict'
+'use strict';
 
 import { Injectable } from "@angular/core";
-import { Headers, Http, Response } from "@angular/http";
+import { Http, Response } from "@angular/http";
+
 import { CONSTANTS } from "../../../../shared/CONSTANTS";
 import { SignInModel } from "../auth.model";
 import { errorHandler } from "../../../../shared/error-handler/error-handler";
 
+/**
+ * Sign in api service
+ */
 @Injectable()
 export class SignInApiService {
 
+    /**
+     * Create Sign in api service
+     * @param {Http} _http Http service
+     */
     public constructor(
         private _http: Http
     ){}
 
-    public signInUser(signIn: SignInModel){
+    /**
+     * Sign in user
+     * @param {SignInModel} signIn Sign in data
+     * @returns {Promise<Response | void>} User token
+     */
+    public signInUser(signIn: SignInModel): Promise<string>{
         return this._http.post(CONSTANTS.BACKEND_URL +
             `sign-in/sign-in.php`, signIn)
             .toPromise()
@@ -23,16 +36,4 @@ export class SignInApiService {
             })
     }
 
-    public getUset(token: string) {
-        let headers: Headers = new Headers();
-        headers.append('auth-token', token);
-        return this._http.get(CONSTANTS.BACKEND_URL + `getUser.php`, {
-            headers: headers
-        })
-            .toPromise()
-            .then((res: Response) => res.json())
-            .catch((errorResponse: Response) => {
-                throw errorHandler(errorResponse);
-            })
-    }
 }

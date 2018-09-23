@@ -4,13 +4,13 @@ import { Component, OnInit } from '@angular/core';
 import { LoadingController, NavController } from 'ionic-angular';
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { Loading } from "ionic-angular/components/loading/loading";
+import { NGXLogger } from "ngx-logger";
 
 import { SignInModel } from "../auth.model";
 import { SignUpComponent } from "../sign-up/sign-up.component";
 import { SignInApiService } from "./sign-in-api.service";
 import { ApiError } from "../../../../shared/error-handler/error-handler";
 import { SessionInfoService } from "../../../../shared/session-info/session-info.service";
-import { NGXLogger } from "ngx-logger";
 import { MainComponent } from "../../main/main.component";
 import { errorMessageAnimation } from "../animation.const";
 
