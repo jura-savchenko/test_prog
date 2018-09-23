@@ -1,0 +1,49 @@
+<ion-header color="primary">
+    <ion-toolbar color="primary">
+        <ion-title>Sign in page</ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content padding>
+    <div class="sign-in-component auth-page">
+        <div ion-text *ngIf="error" class="error-message" [@error-message]>
+            <span class="error-message-text">{{error.message}}</span>
+            <span class="error-message-close" (click)="error=null"> <ion-icon name="close"></ion-icon></span>
+        </div>
+        <form class="standard-form authorization-page-container-form"
+              [formGroup]="signInForm" (submit)="signIn()">
+            <ion-list>
+                <ion-item>
+                    <ion-label floating>Login</ion-label>
+                    <ion-input
+                        [disabled]="lockSignUpUi? true : null"
+                        formControlName="email" [(ngModel)]="signInModel.email" type="text"></ion-input>
+                </ion-item>
+                <p [@error-message] color="danger" ion-text *ngIf="getErrorFieldStatus('email', 'required')">
+                    Email field is required.
+                </p>
+                <ion-item>
+                    <ion-label floating>Password</ion-label>
+                    <ion-input
+                        [disabled]="lockSignUpUi? true : null"
+                        formControlName="password" [(ngModel)]="signInModel.password" type="password"></ion-input>
+                </ion-item>
+                <p [@error-message] color="danger" ion-text *ngIf="getErrorFieldStatus('password', 'required')">
+                    Password field is required.
+                </p>
+            </ion-list>
+
+            <button
+                [disabled]="lockSignUpUi || !signInForm.valid"
+                ion-button round block type="submit">
+                <span> {{lockSignUpUi? 'Loading...': 'Sign In'}}</span>
+            </button>
+            <a class="sign-up-button"
+               (click)="lockSignInUI ? '': navigateToSignUp()"
+               text-center
+               type="submit">
+                Sign up
+            </a>
+        </form>
+    </div>
+</ion-content>
+

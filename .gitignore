@@ -1,0 +1,60 @@
+# Specifies intentionally untracked files to ignore when using Git
+# http://git-scm.com/docs/gitignore
+
+# Webstorm/Vscode/Sublime
+.idea/
+*.sublime-project
+*.sublime-workspace
+.vscode/
+
+# Logs and trash
+npm-debug.log*
+*~
+*.sw[mnpcod]
+*.log
+*.tmp
+log.txt
+$RECYCLE.BIN/
+tsconfig.tmp.json
+.DS_Store
+Thumbs.db
+UserInterfaceState.xcuserstate
+.sourcemaps
+www
+documentation
+
+# Build folders
+.sass-cache/
+.tmp/
+*.tmp.*
+src/assets/i18n/
+package-lock.json
+
+# Coverege folders
+config/coverage
+coverage/*
+dist/
+tmp/
+temp/
+reports/
+features/step_definitions/step_definitions
+
+# Doc
+doc/
+
+# Dependencies
+node_modules/
+platforms/
+
+plugins/*
+!plugins/fetch.json
+!plugins/ios.json
+!plugins/android.json
+!plugins/wp8.json
+
+# Dynamic resources
+resources/android/
+resources/ios/
+resources/wp8/
+resources/icon.png.md5
+resources/splash.png.md5

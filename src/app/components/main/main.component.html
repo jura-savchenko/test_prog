@@ -1,0 +1,33 @@
+<ion-header>
+    <ion-toolbar color="primary">
+        <ion-title>
+            User page
+        </ion-title>
+        <ion-buttons end>
+            <button ion-button icon-only  (click)="logOut()">
+                <ion-icon name="exit"></ion-icon>
+            </button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+<ion-content>
+    <ion-card>
+        <ion-card-header>
+           User card
+        </ion-card-header>
+        <ion-list *ngIf="user">
+            <ion-item>
+                Name : {{user.name}}
+            </ion-item>
+            <ion-item>
+                Email : {{user.email}}
+            </ion-item>
+            <ion-item>
+                Surname : {{user.surname}}
+            </ion-item>
+            <ion-item>
+                Date of birth : {{user.birthday}}
+            </ion-item>
+        </ion-list>
+    </ion-card>
+</ion-content>

@@ -1,0 +1,24 @@
+@import "../../../theme/variables";
+
+.auth-page{
+
+    .item-block{
+
+        padding-left: 0;
+    }
+
+    .error-message{
+        padding: 10px;
+        color: #fff;
+        background: color($colors, danger);
+        border-radius: 5px;
+        position: relative;
+
+        &-close{
+            position: absolute;
+            top: 2px;
+            right: 5px;
+            padding: 2px;
+        }
+    }
+}
